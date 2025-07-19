@@ -9,6 +9,7 @@ import CartItem from "@/components/cart-item";
 import CartSummary from "@/components/cart-summary";
 import Recommendations from "@/components/recommendations";
 import { ShoppingCart } from "lucide-react";
+import React from "react";
 
 export default function CartPage() {
   const { cartItems } = useCart();
@@ -38,10 +39,10 @@ export default function CartPage() {
             <CardContent>
               <div className="space-y-4">
                 {cartItems.map((item, index) => (
-                  <>
-                    <CartItem key={item.id} item={item} />
+                  <React.Fragment key={item.id}>
+                    <CartItem item={item} />
                     {index < cartItems.length - 1 && <Separator />}
-                  </>
+                  </React.Fragment>
                 ))}
               </div>
             </CardContent>
